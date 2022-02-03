@@ -35,6 +35,8 @@ ioTypes.example = class extends IO {
     }
 }
 ```
+### Step 2
 Make sure to do this for every controller, then find `info.PROPERTIES.GUN_CONTROLLERS.forEach` in server.js, and replace `toAdd.push(eval('new ' + ioName + '(self)'));` with `toAdd.push(new ioTypes[ioName](self));`
 Next, find `set.CONTROLLERS.forEach` in server.js, and replace `toAdd.push(eval('new io_' + ioName + '(this)'));` with `toAdd.push(new ioTypes[ioName](this));`
+### Step 3
 Make sure to do that for any instance you have of manually adding controllers!!
